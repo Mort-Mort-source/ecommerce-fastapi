@@ -6,17 +6,13 @@ Sistema de e-commerce desarrollado con arquitectura de microservicios usando Fas
 
 ### Backend
 - **FastAPI** - Framework principal
-- **SQLAlchemy** - ORM para bases de datos
-- **Pydantic** - Validación de datos
 - **JWT (python-jose)** - Autenticación con tokens
-- **Passlib + bcrypt** - Hashing de contraseñas
 - **SQLite** - Base de datos embebida
-- **httpx** - Cliente HTTP asíncrono para comunicación entre servicios
+- **httpx** - Cliente HTTP para comunicación entre servicios
 
 ### Frontend
-- HTML5 + Vanilla JavaScript
+- HTML5 + JavaScript
 - Tailwind CSS
-- Font Awesome
 
 ### Infraestructura
 - **Docker** y **Docker Compose**
