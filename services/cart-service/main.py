@@ -1,0 +1,28 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from app.database import Base, engine
+from app.routers.cart import router as cart_router
+
+app = FastAPI(
+    title="Carrito de Compra - Microservicio",
+    description="Gestión del carrito del usuario"
+)
+
+# ==================== CORS ====================
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5500", "http://127.0.0.1:5500", "*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Crear tablas automáticamente
+Base.metadata.create_all(bind=engine)
+
+# Incluir rutas
+app.include_router(cart_router, prefix="/cart", tags=["cart"])
+
+@app.get("/")
+def root():
+    return {"message": "✅ Cart Service está corriendo en el puerto 8003"}

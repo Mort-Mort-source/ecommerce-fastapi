@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  user-service:
+    image: python:3.11-slim
+    container_name: user-service
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./services/user-service:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir -r requirements.txt &&
+               uvicorn main:app --host 0.0.0.0 --port 8001 --reload"
+    networks:
+      - ecommerce-net
+    restart: unless-stopped
+
+  product-service:
+    image: python:3.11-slim
+    container_name: product-service
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./services/product-service:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir -r requirements.txt &&
+               uvicorn main:app --host 0.0.0.0 --port 8002 --reload"
+    networks:
+      - ecommerce-net
+    restart: unless-stopped
+
+  cart-service:
+    image: python:3.11-slim
+    container_name: cart-service
+    ports:
+      - "8003:8003"
+    volumes:
+      - ./services/cart-service:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir -r requirements.txt &&
+               uvicorn main:app --host 0.0.0.0 --port 8003 --reload"
+    networks:
+      - ecommerce-net
+    restart: unless-stopped
+
+  order-service:
+    image: python:3.11-slim
+    container_name: order-service
+    ports:
+      - "8004:8004"
+    volumes:
+      - ./services/order-service:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir -r requirements.txt &&
+               uvicorn main:app --host 0.0.0.0 --port 8004 --reload"
+    networks:
+      - ecommerce-net
+    restart: unless-stopped
+
+  shipment-service:
+    image: python:3.11-slim
+    container_name: shipment-service
+    ports:
+      - "8005:8005"
+    volumes:
+      - ./services/shipment-service:/app
+    working_dir: /app
+    command: >
+      bash -c "pip install --no-cache-dir -r requirements.txt &&
+               uvicorn main:app --host 0.0.0.0 --port 8005 --reload"
+    networks:
+      - ecommerce-net
+    restart: unless-stopped
+
+networks:
+  ecommerce-net:
+    driver: bridge

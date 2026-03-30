@@ -1,0 +1,142 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+\title{Integración de Sistemas \\ Microservicios para E-commerce}
+\author{Aaron Rodrigo Ramos Reyes}
+\date{\today}
+
+\begin{document}
+
+% ==================== PORTADA ====================
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\Large Universidad Autónoma Metropolitana \\ Unidad Cuajimalpa \par}
+    \vspace{1.5cm}
+    
+    {\Large Integración de Sistemas \par}
+    \vspace{2cm}
+    
+    {\Huge \textbf{Microservicios para E-commerce} \par}
+    \vspace{1.5cm}
+    
+    {\large Proyecto Final \par}
+    \vspace{2cm}
+    
+    {\large Integrante: \par}
+    {\Large Aaron Rodrigo Ramos Reyes \par}
+    \vspace{1.5cm}
+    
+    {\large Profesor: \par}
+    {\large [Nombre del Profesor] \par}
+    \vspace{2cm}
+    
+    {\large Cuajimalpa, Ciudad de México \par}
+    {\large \today \par}
+\end{titlepage}
+
+% ==================== ÍNDICE ====================
+\tableofcontents
+\newpage
+
+% ==================== INTRODUCCIÓN ====================
+\section{Introducción}
+El presente proyecto consiste en el desarrollo de una aplicación de e-commerce utilizando una arquitectura de microservicios. El sistema está compuesto por cinco servicios independientes que se comunican entre sí mediante APIs REST y comparten información a través de una red Docker.
+
+El objetivo principal es demostrar la integración de múltiples servicios backend con un frontend simple, implementando un flujo completo de compra: registro de usuarios, catálogo de productos, carrito de compras, generación de órdenes y gestión de envíos.
+
+\section{Descripción del Proyecto}
+El sistema ``EcoShop'' es una plataforma de comercio electrónico minimalista que permite a los usuarios navegar por un catálogo de productos, agregar artículos al carrito, generar órdenes de compra y rastrear sus envíos. 
+
+La arquitectura está basada en microservicios, lo que permite escalabilidad, mantenimiento independiente y mayor resiliencia del sistema.
+
+\section{Servicios Implementados}
+
+\subsection{1. User Service (Puerto 8001)}
+Responsable de la gestión de usuarios, registro, inicio de sesión y autenticación mediante JWT. Es el servicio base que proporciona el token necesario para acceder a los demás servicios.
+
+\subsection{2. Product Service (Puerto 8002)}
+Servicio de solo lectura que maneja el catálogo de productos. Incluye productos de ejemplo (laptops, teléfonos, accesorios) y proporciona información como nombre, descripción, precio y stock.
+
+\subsection{3. Cart Service (Puerto 8003)}
+Gestiona el carrito de compras por usuario. Permite agregar productos, actualizar cantidades, eliminar items y vaciar el carrito completo. Almacena el precio del producto en el momento de agregar al carrito.
+
+\subsection{4. Order Service (Puerto 8004)}
+Orquestador principal del flujo de compra. Se encarga de:
+\begin{itemize}
+    \item Obtener el carrito del usuario
+    \item Crear la orden de compra
+    \item Guardar los items de la orden
+    \item Vaciar el carrito
+    \item Llamar al servicio de envíos
+\end{itemize}
+
+\subsection{5. Shipment Service (Puerto 8005)}
+Gestiona las órdenes de envío. Crea automáticamente un envío cuando se genera una orden, asignando un número de tracking y manteniendo el estado del envío (pendiente, en camino, entregado).
+
+\section{Diagrama de Clases}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/diagrama_clases.png}
+    \caption{Diagrama de Clases del sistema de microservicios}
+    \label{fig:clases}
+\end{figure}
+
+\section{Diagrama de Flujo}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/diagrama_de_flujo.png}
+    \caption{Diagrama de Secuencia - Flujo de Compra}
+    \label{fig:flujo}
+\end{figure}
+
+El flujo principal comienza con la autenticación del usuario, continúa con la selección de productos, agregarlos al carrito, y culmina con la creación de la orden y el envío automático.
+
+\section{Arquitectura del Sistema}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/diagrama_de_arquitectura.png}
+    \caption{Arquitectura General del Sistema}
+    \label{fig:arquitectura}
+\end{figure}
+
+El sistema utiliza Docker Compose para orquestar los cinco microservicios y sus respectivas bases de datos SQLite. La comunicación entre servicios se realiza mediante HTTP/REST y todos comparten una red interna llamada \texttt{ecommerce-net}.
+
+\section{Aprendizajes}
+
+Durante el desarrollo de este proyecto se adquirieron los siguientes conocimientos:
+
+\begin{itemize}
+    \item Diseño e implementación de arquitecturas basadas en microservicios
+    \item Comunicación entre servicios mediante APIs REST y manejo de tokens JWT
+    \item Uso de Docker y Docker Compose para orquestación de contenedores
+    \item Integración de FastAPI con SQLAlchemy y Pydantic
+    \item Manejo de CORS y problemas comunes en aplicaciones distribuidas
+    \item Buenas prácticas en el diseño de endpoints y validación de datos
+    \item Depuración de errores en entornos multi-contenedor
+\end{itemize}
+
+\section{Conclusiones}
+
+La implementación de este proyecto permitió comprender las ventajas y desafíos de trabajar con microservicios. Aunque aumenta la complejidad inicial en comparación con una aplicación monolítica, ofrece una mejor escalabilidad, mantenimiento y organización del código.
+
+Se logró integrar exitosamente cinco servicios independientes con un frontend funcional, completando un flujo real de e-commerce. Este proyecto sirve como base sólida para futuras expansiones, como la incorporación de pagos, notificaciones y mayor robustez en la gestión de errores.
+
+\vspace{1cm}
+\textbf{Aaron Rodrigo Ramos Reyes} \\
+Cuajimalpa, Ciudad de México \\
+\today
+
+\end{document}

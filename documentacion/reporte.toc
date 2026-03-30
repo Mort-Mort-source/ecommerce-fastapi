@@ -1,0 +1,14 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
+\contentsline {section}{\numberline {2}Descripción del Proyecto}{2}{section.2}%
+\contentsline {section}{\numberline {3}Servicios Implementados}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}1. User Service (Puerto 8001)}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}2. Product Service (Puerto 8002)}{2}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}3. Cart Service (Puerto 8003)}{2}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}4. Order Service (Puerto 8004)}{2}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}5. Shipment Service (Puerto 8005)}{2}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Diagrama de Clases}{3}{section.4}%
+\contentsline {section}{\numberline {5}Diagrama de Flujo}{3}{section.5}%
+\contentsline {section}{\numberline {6}Arquitectura del Sistema}{3}{section.6}%
+\contentsline {section}{\numberline {7}Aprendizajes}{3}{section.7}%
+\contentsline {section}{\numberline {8}Conclusiones}{3}{section.8}%

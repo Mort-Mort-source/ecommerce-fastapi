@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoShop - Minimal E-commerce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 font-sans">
+  <!-- NAVBAR -->
+  <nav class="bg-white shadow-sm border-b sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-leaf text-emerald-600 text-3xl"></i>
+        <h1 class="text-2xl font-semibold text-gray-900">EcoShop</h1>
+      </div>
+
+      <div class="flex gap-8 text-sm font-medium">
+        <button onclick="navigate('catalog')" class="nav-link flex items-center gap-2 hover:text-emerald-600 transition">
+          <i class="fa-solid fa-store"></i> Catálogo
+        </button>
+        <button onclick="navigate('cart')" class="nav-link flex items-center gap-2 hover:text-emerald-600 transition">
+          <i class="fa-solid fa-shopping-cart"></i> Carrito
+          <span id="cart-count" class="bg-emerald-600 text-white text-xs px-2 py-0.5 rounded-full">0</span>
+        </button>
+        <button onclick="navigate('orders')" class="nav-link flex items-center gap-2 hover:text-emerald-600 transition">
+          <i class="fa-solid fa-file-invoice"></i> Mis Órdenes
+        </button>
+        <button onclick="navigate('shipments')" class="nav-link flex items-center gap-2 hover:text-emerald-600 transition">
+          <i class="fa-solid fa-truck"></i> Mis Envíos
+        </button>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div id="user-info" class="hidden items-center gap-2 text-sm">
+          <span id="user-name" class="font-medium"></span>
+          <button onclick="logout()" class="text-red-500 hover:text-red-700 transition">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+        <button onclick="showLoginModal()" id="login-btn"
+                class="px-5 py-2 bg-emerald-600 text-white rounded-2xl hover:bg-emerald-700 transition">
+          Iniciar sesión
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="max-w-7xl mx-auto px-6 py-8" id="main-content">
+    <!-- Se cargará dinámicamente con JS -->
+  </div>
+
+  <!-- LOGIN / REGISTER MODAL -->
+  <div id="auth-modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+    <div class="bg-white rounded-3xl shadow-xl max-w-md w-full mx-4 p-8">
+      <h2 id="modal-title" class="text-2xl font-semibold mb-6 text-center">Iniciar sesión</h2>
+      
+      <div class="space-y-4">
+        <input id="email" type="email" placeholder="Correo electrónico" 
+               class="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:border-emerald-500">
+        <input id="password" type="password" placeholder="Contraseña" 
+               class="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:border-emerald-500">
+        <input id="full-name" type="text" placeholder="Nombre completo (solo registro)" 
+               class="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:border-emerald-500 hidden">
+      </div>
+
+      <div class="flex gap-3 mt-8">
+        <button onclick="toggleAuthMode()" id="toggle-btn"
+                class="flex-1 py-3 text-emerald-600 border border-emerald-600 rounded-2xl hover:bg-emerald-50">
+          ¿No tienes cuenta? Regístrate
+        </button>
+        <button onclick="handleAuth()" id="auth-btn"
+                class="flex-1 py-3 bg-emerald-600 text-white rounded-2xl hover:bg-emerald-700">
+          Iniciar sesión
+        </button>
+      </div>
+      <button onclick="hideModal()" class="mt-4 text-gray-400 hover:text-gray-600 w-full">
+        Cancelar
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
