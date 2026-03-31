@@ -69,6 +69,7 @@ Shipment Service: http://localhost:8005/docs
 5. **Flujo Recomendado de Prueba**
 
 Registrar un usuario o iniciar sesión
+**(Muy importante el usuario debe crearse con el formato simulando un correo real "prueba@test.com" "correo@prueba.com" "juan@cualquiercosa.com" es importante que tenga este tipo de formato o la pagina arroja error)**
 Explorar el catálogo de productos
 Agregar productos al carrito
 Ir al carrito y pulsar "Generar Orden de Compra"

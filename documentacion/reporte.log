@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.1)  30 MAR 2026 01:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.1)  30 MAR 2026 23:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -225,9 +225,16 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box53
 \enit@count@id=\count301
 \enitdp@description=\count302
+) (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count303
+\float@exts=\toks24
+\float@box=\box54
+\@float@everytoks=\toks25
+\@floatcapt=\box55
 ) (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count303
+\l__color_backend_stack_int=\count304
 ) (reporte.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
@@ -236,39 +243,39 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `reporte.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Info: Redefining \. on input line 16.
-LaTeX Info: Redefining \% on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Info: Redefining \. on input line 19.
+LaTeX Info: Redefining \% on input line 19.
  (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count304
+\scratchcounter=\count305
 \scratchdimen=\dimen165
-\scratchbox=\box54
-\nofMPsegments=\count305
-\nofMParguments=\count306
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count307
+\scratchbox=\box56
+\nofMPsegments=\count306
+\nofMParguments=\count307
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count308
 \MPscratchDim=\dimen166
-\MPnumerator=\count308
-\makeMPintoPDFobject=\count309
-\everyMPtoPDFconversion=\toks25
+\MPnumerator=\count309
+\makeMPintoPDFobject=\count310
+\everyMPtoPDFconversion=\toks27
 ) (C:\Users\aaron\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -309,7 +316,7 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 16.
+Package hyperref Info: Link coloring OFF on input line 19.
 (reporte.out) (reporte.out)
 \@outlinefile=\write3
 \openout3 = `reporte.out'.
@@ -333,34 +340,106 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.47 \newpage
-              [1]
-<imagenes/diagrama_clases.png, id=81, 538.01pt x 805.0075pt>
+l.52 \newpage
+              [1] [2] [3]
+<imagenes/frontend_login.png, id=128, 1927.2pt x 1084.05pt>
+File: imagenes/frontend_login.png Graphic file (type png)
+<use imagenes/frontend_login.png>
+Package pdftex.def Info: imagenes/frontend_login.png  used on input line 167.
+(pdftex.def)             Requested size: 386.96027pt x 217.64977pt.
+<imagenes/frontend_catalogo.png, id=130, 1927.2pt x 1084.05pt>
+File: imagenes/frontend_catalogo.png Graphic file (type png)
+<use imagenes/frontend_catalogo.png>
+Package pdftex.def Info: imagenes/frontend_catalogo.png  used on input line 174.
+(pdftex.def)             Requested size: 386.96027pt x 217.64977pt.
+ [4
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.178 
+       <./imagenes/frontend_login.png>]
+<imagenes/frontend_carrito.png, id=140, 1927.2pt x 1084.05pt>
+File: imagenes/frontend_carrito.png Graphic file (type png)
+<use imagenes/frontend_carrito.png>
+Package pdftex.def Info: imagenes/frontend_carrito.png  used on input line 192.
+(pdftex.def)             Requested size: 386.96027pt x 217.64977pt.
+<imagenes/frontend_orden_generada.png, id=141, 1927.2pt x 1084.05pt>
+File: imagenes/frontend_orden_generada.png Graphic file (type png)
+<use imagenes/frontend_orden_generada.png>
+Package pdftex.def Info: imagenes/frontend_orden_generada.png  used on input line 199.
+(pdftex.def)             Requested size: 386.96027pt x 217.64977pt.
+ [5
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.203 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.203 
+       <./imagenes/frontend_catalogo.png> <./imagenes/frontend_carrito.png>]
+<imagenes/frontend_mis_ordenes.png, id=150, 1927.2pt x 1084.05pt>
+File: imagenes/frontend_mis_ordenes.png Graphic file (type png)
+<use imagenes/frontend_mis_ordenes.png>
+Package pdftex.def Info: imagenes/frontend_mis_ordenes.png  used on input line 209.
+(pdftex.def)             Requested size: 386.96027pt x 217.64977pt.
+<imagenes/frontend_mis_envios.png, id=151, 1927.2pt x 1084.05pt>
+File: imagenes/frontend_mis_envios.png Graphic file (type png)
+<use imagenes/frontend_mis_envios.png>
+Package pdftex.def Info: imagenes/frontend_mis_envios.png  used on input line 216.
+(pdftex.def)             Requested size: 386.96027pt x 217.64977pt.
+ [6
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.220 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.220 
+       <./imagenes/frontend_orden_generada.png> <./imagenes/frontend_mis_ordenes.png>]
+<imagenes/diagrama_clases.png, id=161, 538.01pt x 805.0075pt>
 File: imagenes/diagrama_clases.png Graphic file (type png)
 <use imagenes/diagrama_clases.png>
-Package pdftex.def Info: imagenes/diagrama_clases.png  used on input line 88.
+Package pdftex.def Info: imagenes/diagrama_clases.png  used on input line 228.
 (pdftex.def)             Requested size: 432.48051pt x 647.1146pt.
- [2]
+ [7
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.232 
+       <./imagenes/frontend_mis_envios.png>] [8]
+Overfull \vbox (5.7042pt too high) has occurred while \output is active []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<imagenes/diagrama_de_flujo.png, id=86, 1343.0175pt x 734.745pt>
+ [9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.232 
+       <./imagenes/diagrama_clases.png>]
+<imagenes/diagrama_de_flujo.png, id=178, 1343.0175pt x 734.745pt>
 File: imagenes/diagrama_de_flujo.png Graphic file (type png)
 <use imagenes/diagrama_de_flujo.png>
-Package pdftex.def Info: imagenes/diagrama_de_flujo.png  used on input line 97.
+Package pdftex.def Info: imagenes/diagrama_de_flujo.png  used on input line 237.
 (pdftex.def)             Requested size: 432.48051pt x 236.60309pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<imagenes/diagrama_de_arquitectura.png, id=87, 1322.9425pt x 654.445pt>
+<imagenes/diagrama_de_arquitectura.png, id=179, 1322.9425pt x 654.445pt>
 File: imagenes/diagrama_de_arquitectura.png Graphic file (type png)
 <use imagenes/diagrama_de_arquitectura.png>
-Package pdftex.def Info: imagenes/diagrama_de_arquitectura.png  used on input line 108.
+Package pdftex.def Info: imagenes/diagrama_de_arquitectura.png  used on input line 248.
 (pdftex.def)             Requested size: 432.48051pt x 213.94035pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[3] [4 <./imagenes/diagrama_clases.png>] [5 <./imagenes/diagrama_de_flujo.png> <./imagenes/diagrama_de_arquitectura.png>] (reporte.aux
+ [10
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.260     \item D
+                 iseño e implementación de arquitecturas basadas en micros...
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.260     \item D
+                 iseño e implementación de arquitecturas basadas en micros... <./imagenes/diagrama_de_flujo.png> <./imagenes/diagrama_de_arquitectura.png>] [11] (reporte.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -369,20 +448,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `reporte.out' has not changed.
-(rerunfilecheck)             Checksum: C0404AEB45A555D85BFD707883DECF89;2231.
+(rerunfilecheck)             Checksum: AEF6EC2127B732EF0B4E55061D58D30F;3681.
  ) 
 Here is how much of TeX's memory you used:
- 11109 strings out of 467871
- 178036 string characters out of 5418377
- 613988 words of memory out of 5000000
- 39860 multiletter control sequences out of 15000+600000
- 632752 words of font info for 57 fonts, out of 8000000 for 9000
+ 11272 strings out of 467871
+ 181385 string characters out of 5418377
+ 616848 words of memory out of 5000000
+ 39994 multiletter control sequences out of 15000+600000
+ 633093 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,376b,502s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on reporte.pdf (6 pages, 178210 bytes).
+ 75i,6n,79p,376b,688s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\aaron\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/aaron/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on reporte.pdf (12 pages, 1007427 bytes).
 PDF statistics:
- 135 PDF objects out of 1000 (max. 8388607)
- 23 named destinations out of 1000 (max. 500000)
- 120 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 231 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 

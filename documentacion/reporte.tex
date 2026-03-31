@@ -6,6 +6,7 @@
 \usepackage{fancyhdr}
 \usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage{float}  % Paquete necesario para usar [H]
 
 \geometry{margin=2.5cm}
 
@@ -85,9 +86,144 @@ Orquestador principal del flujo de compra. Se encarga de:
 \subsection{5. Shipment Service (Puerto 8005)}
 Gestiona las órdenes de envío. Crea automáticamente un envío cuando se genera una orden, asignando un número de tracking y manteniendo el estado del envío (pendiente, en camino, entregado).
 
+% ==================== EXPOSICIÓN DE SERVICIOS ====================
+\section{Exposición de Servicios}
+
+Cada microservicio expone una serie de endpoints (recursos y operaciones) a través de una API RESTful, los cuales pueden ser consumidos tanto por el frontend como por otros microservicios.
+
+\begin{itemize}
+    \item \textbf{User Service (8001)}: Expone operaciones de registro, login y validación de usuarios mediante JWT.
+    \item \textbf{Product Service (8002)}: Expone endpoints de consulta de catálogo de productos (solo lectura).
+    \item \textbf{Cart Service (8003)}: Expone operaciones completas de gestión del carrito (agregar, actualizar, eliminar y vaciar).
+    \item \textbf{Order Service (8004)}: Expone la creación de órdenes de compra y consulta de historial.
+    \item \textbf{Shipment Service (8005)}: Expone la creación y consulta de órdenes de envío.
+\end{itemize}
+
+Todos los servicios utilizan el estándar OpenAPI (Swagger) para documentar sus endpoints, accesibles en la ruta \texttt{/docs} de cada servicio.
+
+% ==================== CONSUMO DE SERVICIOS ====================
+\section{Consumo de Servicios entre Sistemas}
+
+Uno de los requisitos fundamentales del proyecto es la \textbf{comunicación bidireccional} entre microservicios. El sistema no funciona de forma aislada, sino que los servicios se consumen mutuamente.
+
+\begin{itemize}
+    \item El \textbf{Cart Service} consume el \textbf{Product Service} para obtener el precio real del producto al momento de agregarlo al carrito.
+    
+    \item El \textbf{Order Service} consume el \textbf{Cart Service} para:
+    \begin{itemize}
+        \item Obtener el contenido actual del carrito del usuario.
+        \item Vaciar el carrito una vez generada la orden.
+    \end{itemize}
+    
+    \item El \textbf{Order Service} consume el \textbf{Shipment Service} para crear automáticamente una orden de envío al generar una orden de compra.
+    
+    \item El \textbf{Frontend} consume todos los servicios mediante peticiones HTTP autenticadas con JWT.
+\end{itemize}
+
+Esta integración asegura que los servicios no sean independientes, sino que formen un ecosistema interconectado y funcional.
+
+% ==================== FUNCIONAMIENTO CORRECTO ====================
+\section{Funcionamiento Correcto de la Integración}
+
+La integración entre los microservicios se ejecuta correctamente, demostrando una comunicación efectiva entre sistemas. 
+
+El flujo completo de compra funciona de la siguiente manera:
+
+\begin{enumerate}
+    \item El usuario se autentica en el \textbf{User Service} y obtiene un token JWT.
+    \item Consulta el catálogo a través del \textbf{Product Service}.
+    \item Agrega productos al carrito mediante el \textbf{Cart Service}.
+    \item Al generar la orden, el \textbf{Order Service}:
+    \begin{itemize}
+        \item Consulta el carrito actual.
+        \item Crea la orden y sus ítems correspondientes.
+        \item Vacía el carrito.
+        \item Solicita la creación automática de un envío al \textbf{Shipment Service}.
+    \end{itemize}
+    \item El usuario puede consultar sus órdenes y envíos en tiempo real.
+\end{enumerate}
+
+Se ha verificado que:
+\begin{itemize}
+    \item La comunicación entre servicios se realiza correctamente mediante HTTP.
+    \item El manejo de autenticación (JWT) funciona entre servicios.
+    \item Las transacciones entre servicios (creación de orden + envío) se ejecutan de forma coordinada.
+    \item El frontend puede consumir todos los endpoints de manera exitosa.
+\end{itemize}
+
+La integración se considera funcional en su totalidad, cumpliendo con los objetivos de exposición y consumo de servicios entre sistemas.
+
+
+% ==================== FUNCIONAMIENTO DEL SISTEMA Y FRONTEND ====================
+\section{Funcionamiento del Sistema y Frontend}
+
+Una vez implementada la integración entre los microservicios y el frontend, se procedió a verificar el correcto funcionamiento del sistema completo. A continuación se presenta evidencia visual y descriptiva del comportamiento observado.
+
+\subsection{Interfaz del Frontend}
+El frontend desarrollado con HTML, JavaScript y Tailwind CSS permite una interacción fluida con todos los servicios backend. El usuario puede navegar por el catálogo, gestionar su carrito y visualizar sus órdenes y envíos de manera intuitiva.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/frontend_login.png}
+    \caption{Pantalla de inicio de sesión y registro}
+    \label{fig:frontend-login}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/frontend_catalogo.png}
+    \caption{Catálogo de productos cargado correctamente desde el Product Service}
+    \label{fig:frontend-catalogo}
+\end{figure}
+
+\subsection{Flujo Completo de Compra}
+Se validó exitosamente el flujo completo de una compra:
+
+\begin{itemize}
+    \item Inicio de sesión y obtención de token JWT.
+    \item Navegación por el catálogo y adición de productos al carrito.
+    \item Visualización y modificación del carrito de compras.
+    \item Generación exitosa de una orden de compra.
+    \item Creación automática del envío asociado.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/frontend_carrito.png}
+    \caption{Carrito de compras con productos agregados}
+    \label{fig:frontend-carrito}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/frontend_orden_generada.png}
+    \caption{Confirmación de orden generada correctamente}
+    \label{fig:frontend-orden}
+\end{figure}
+
+\subsection{Evidencia de Integración}
+Las siguientes capturas muestran el correcto funcionamiento de las secciones "Mis Órdenes" y "Mis Envíos", demostrando que la comunicación entre el Order Service y el Shipment Service se ejecuta de forma adecuada.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/frontend_mis_ordenes.png}
+    \caption{Pantalla de Mis Órdenes mostrando las órdenes generadas}
+    \label{fig:mis-ordenes}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/frontend_mis_envios.png}
+    \caption{Pantalla de Mis Envíos con los envíos creados automáticamente}
+    \label{fig:mis-envios}
+\end{figure}
+
+El sistema demuestra una integración estable y funcional entre el frontend y los cinco microservicios, cumpliendo con los requisitos de exposición, consumo y comunicación bidireccional entre servicios.
+
+
 \section{Diagrama de Clases}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{imagenes/diagrama_clases.png}
     \caption{Diagrama de Clases del sistema de microservicios}
@@ -96,7 +232,7 @@ Gestiona las órdenes de envío. Crea automáticamente un envío cuando se gener
 
 \section{Diagrama de Flujo}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{imagenes/diagrama_de_flujo.png}
     \caption{Diagrama de Secuencia - Flujo de Compra}
@@ -107,7 +243,7 @@ El flujo principal comienza con la autenticación del usuario, continúa con la 
 
 \section{Arquitectura del Sistema}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{imagenes/diagrama_de_arquitectura.png}
     \caption{Arquitectura General del Sistema}
