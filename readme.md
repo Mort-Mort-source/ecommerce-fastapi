@@ -30,7 +30,7 @@ Sistema de e-commerce desarrollado con arquitectura de microservicios usando Fas
 
 **Frontend**: http://127.0.0.1:5500/frontend/index.html (Live Server recomendado)
 
-## Cómo Levantar el Proyecto
+## Cómo levantar el Proyecto
 
 ### Requisitos previos
 - Tener instalado **Docker** y **Docker Compose**
@@ -46,10 +46,11 @@ docker compose down
 docker compose up -d --build
 ```
 
-2. **Verificar que todos los servicios estén corriendo:**
+3. **Verificar que todos los servicios estén corriendo:**
 ```bash
-Bashdocker compose ps
+docker compose ps
 ```
+
 Deberías ver los 5 servicios en estado Up.
 
 4. **Acceder al Frontend:**
@@ -57,6 +58,50 @@ Abre el archivo frontend/index.html con Live Server (recomendado) o directamente
 http://127.0.0.1:5500/frontend/index.html
 
 
+### PROBLEMA COMÚN EN LINUX:
+
+**Al ejecutar:**
+```bash
+docker compose up -d --build
+```
+**Puede aparecer el siguiente error:**
+```bash
+error getting credentials - err: exec: "docker-credential-desktop": executable file not found in $PATH
+```
+
+**Esto se debe a que Docker usa el archivo:**
+
+```bash
+~/.docker/config.json
+```
+**Si contiene:**
+```json
+{
+  "credsStore": "desktop"
+}
+```
+**intentará usar docker-credential-desktop, que solo existe en Docker Desktop (Windows/Mac) y no en Linux.**
+
+**Solución: Editar el archivo de configuración**
+1. **Abre el archivo con tu editor de texto favorito (por ejemplo con nano)**
+```bash
+nano ~/.docker/config.json
+```
+
+2. **Elimina la siguiente linea**
+```bash
+ "credsStore": "desktop"
+```
+3. **Guarda los cambios y cierra el archivo**
+
+**Después de aplicar la solución, ejecuta nuevamente:**
+```bash
+docker compose down
+docker compose up -d --build
+```
+
+[!NOTE]
+Este problema es de la configuración local de Docker, no del proyecto.
 
 URLs de Documentación (Swagger)
 
@@ -76,6 +121,7 @@ Ir al carrito y pulsar "Generar Orden de Compra"
 Revisar Mis Órdenes y Mis Envíos
 
 ## Estructura del proyecto
+```
 ecommerce-fastapi/
 ├── frontend/
 │   ├── index.html
@@ -89,3 +135,4 @@ ecommerce-fastapi/
 │   └── shipment-service/
 ├── docker-compose.yml
 └── README.md
+```
