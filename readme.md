@@ -30,41 +30,54 @@ Sistema de e-commerce desarrollado con arquitectura de microservicios usando Fas
 
 **Frontend**: http://127.0.0.1:5500/frontend/index.html (Live Server recomendado)
 
-## Cómo levantar el Proyecto
+## Ejecución del proyecto
 
 ### Requisitos previos
-- Tener instalado **Docker** y **Docker Compose**
+- Tener instalado **Docker** y **Docker Compose (Versión oficial)**
 
-### Pasos para ejecutar
+**[!NOTE]**
+**Se recomienda instalar Docker desde el repositorio oficial.
+ Algunas instalaciones (como docker.io en Linux) pueden no incluir "buildx", lo que puede causar errores al construir las imagenes.**
 
-1. **Clonar el repositorio** (o ubicarte en la carpeta del proyecto)
-
-2. **Levantar todos los servicios**:
-
+### Primer uso (IMPORTANTE)
+1. **Estar en el directorio del proyecto (ecommerce-fastapi/)**
+2. **Construir las imagenes de los microservicios e instalar las dependencias de estos:**
 ```bash
-docker compose down
-docker compose up -d --build
+docker compose build
 ```
+**Esto puede tardar algunos minutos pero solo se realiza una vez**
 
-3. **Verificar que todos los servicios estén corriendo:**
+3. **Ejecutar el sistema:**
+```bash
+docker compose up -d 
+```
+**Los servicios estarán disponible en pocos segundos**
+
+4. **Verficar que todos los servicios estén corriendo:**
 ```bash
 docker compose ps
 ```
+**Deberías ver los 5 servicios en estado Up**
 
-Deberías ver los 5 servicios en estado Up.
 
-4. **Acceder al Frontend:**
+5. **Acceder al Frontend:**
 Abre el archivo frontend/index.html con Live Server (recomendado) o directamente en:
 http://127.0.0.1:5500/frontend/index.html
 
 
-### PROBLEMA COMÚN EN LINUX:
+**Para detener el sistema:**
 
-**Al ejecutar:**
 ```bash
-docker compose up -d --build
+docker compose down
 ```
-**Puede aparecer el siguiente error:**
+**Para volver a ejecutar el sistema:**
+```bash
+docker compose up -d
+```
+**Ya no se necesita volver a crear las imagenes e instalar las dependencias**
+
+### ¡¡PROBLEMA COMÚN EN LINUX!!:
+**Al ejecutar el sistema puede aparecer el siguiente error:**
 ```bash
 error getting credentials - err: exec: "docker-credential-desktop": executable file not found in $PATH
 ```
@@ -83,42 +96,49 @@ error getting credentials - err: exec: "docker-credential-desktop": executable f
 **intentará usar docker-credential-desktop, que solo existe en Docker Desktop (Windows/Mac) y no en Linux.**
 
 **Solución: Editar el archivo de configuración**
-1. **Abre el archivo con tu editor de texto favorito (por ejemplo con nano)**
+1. **Abre el archivo con tu editor de texto favorito:**
 ```bash
-nano ~/.docker/config.json
+ ~/.docker/config.json
 ```
 
-2. **Elimina la siguiente linea**
+2. **Elimina la siguiente linea:**
 ```bash
  "credsStore": "desktop"
 ```
 3. **Guarda los cambios y cierra el archivo**
 
-**Después de aplicar la solución, ejecuta nuevamente:**
+**Después de aplicar la solución, ejecutar nuevamente:**
+
 ```bash
 docker compose down
-docker compose up -d --build
+docker compose up -d
 ```
 
-[!NOTE]
-Este problema es de la configuración local de Docker, no del proyecto.
+**[!NOTE]**
+**Si el error ocurrió durante el primer intento de construcción, ejecutar también:**
+```bash
+docker compose build
+```
 
-URLs de Documentación (Swagger)
+**[!NOTE]**
+**Este problema no está relacionado con el proyecto, sino con la configuración local de Docker en algunos sistemas Linux.**
 
-User Service: http://localhost:8001/docs
-Product Service: http://localhost:8002/docs
-Cart Service: http://localhost:8003/docs
-Order Service: http://localhost:8004/docs
-Shipment Service: http://localhost:8005/docs
+## URLs de Documentación (Swagger)
 
-5. **Flujo Recomendado de Prueba**
+- User Service: http://localhost:8001/docs
+- Product Service: http://localhost:8002/docs
+- Cart Service: http://localhost:8003/docs
+- Order Service: http://localhost:8004/docs
+- Shipment Service: http://localhost:8005/docs
 
-Registrar un usuario o iniciar sesión
-**(Muy importante el usuario debe crearse con el formato simulando un correo real "prueba@test.com" "correo@prueba.com" "juan@cualquiercosa.com" es importante que tenga este tipo de formato o la pagina arroja error)**
-Explorar el catálogo de productos
-Agregar productos al carrito
-Ir al carrito y pulsar "Generar Orden de Compra"
-Revisar Mis Órdenes y Mis Envíos
+## Flujo Recomendado de Prueba
+
+- Registrar un usuario o iniciar sesión
+**(Muy importante, el usuario debe crearse con el formato simulando un correo real , por ejemplo: "prueba@test.com", "correo@prueba.com", "juan@cualquiercosa.com". Es importante que tenga este tipo de formato o la pagina arroja error)**
+- Explorar el catálogo de productos
+- Agregar productos al carrito
+- Ir al carrito y pulsar "Generar Orden de Compra"
+- Revisar Mis Órdenes y Mis Envíos
 
 ## Estructura del proyecto
 ```
